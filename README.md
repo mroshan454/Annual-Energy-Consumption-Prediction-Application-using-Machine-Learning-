@@ -33,6 +33,7 @@ Each Database contained two files `certificates.csv` and `recommendations.csv`.
 #### Using SQL to load and Combine the data:
 The `certificates.csv` file contained the crucial data for training our model.
 For combining the certificates.csv ,I used Sqlite to create a connection and to combine all of our 3 dataset from different cities (London, Birmingham and Manchester).
+```
               #Importing Sqlite
               import sqlite3
               #Creating connection to sqlite database
@@ -45,9 +46,9 @@ For combining the certificates.csv ,I used Sqlite to create a connection and to 
               df_manchester.to_sql("Manchester",connection,if_exists='replace',index=False)
 
               connection.commit()
-        
+```        
 After that , Combined the data using UNION ALL query and storing it as `energy_data`.
-             
+```             
               #Writing SQL Query to combine all three tables
                   query =  '''
                             SELECT * FROM London
@@ -61,6 +62,6 @@ After that , Combined the data using UNION ALL query and storing it as `energy_d
                   
                   #Display the combined data
                   print(energy_data)
-            
+```            
 
 
